@@ -17,10 +17,10 @@ Team Jurumable
 
 ## Example Images
 
-<img src="./JuruMarble/assets/background.jpeg"></img>
+<img src="./assets/background.jpeg"></img>
 
 ## Example Characters
 
-<img src="./JuruMarble/assets/ogu.gif"></img>
+<img src="./assets/ogu.gif"></img>
 
 
