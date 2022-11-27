@@ -1,6 +1,9 @@
 import pygame
 import os
 
+current_dir = os.getcwd()
+
+
 class ogu:
     def __init__(self,base_path):
         self.x, self.y = 0, 0
@@ -24,8 +27,22 @@ class ogu:
     def show(self):
         screen.blit(self.img, (self.x,self.y))
 
-if __name__ == "__main__":
-    print(1)
+class obj:
+    def __init__(self):
+        self.x, self.y = 0, 0
+        self.move = 0
+    def put_img(self,address):
+        if address[-3:] == "png":
+            self.img = pygame.image.load(address).convert_alpha()
+        else:
+            self.img = pygame.image.load(address)
+            self.sx, self.sy = self.img.get_size()
+    def change_size(self, sx, sy):
+        self.img = pygame.transform.scale(self.img, (sx,sy))
+        self.sx, self.sy = self.img.get_size()
+    def show(self):
+        screen.blit(self.img, (self.x,self.y))
+
     
         
 
@@ -64,8 +81,8 @@ for gx in range(0,screen_width,grid_size[0]):
 
 # 4. main event
 running = True
-ogu1_path = '/Users/myhwan/Python/JuruMarble/assets/ogu1'
-ogu2_path = '/Users/myhwan/Python/JuruMarble/assets/ogu2'
+ogu1_path = current_dir + '/JuruMarble/assets/ogu1'
+ogu2_path = current_dir + '/JuruMarble/assets/ogu2'
 ogu1 = ogu(ogu1_path)
 ogu2 = ogu(ogu2_path)
 
@@ -80,8 +97,7 @@ while running:
     # 4-3 change over time
     # screen.blit(background, (0, 0))
     ogu1.put_img()
-    ogu1.change_size(50,50)
-
+    ogu1.change_size(100,100)
     ogu2.x, ogu2.y = 100,100
     ogu2.put_img()
     ogu2.change_size(50,50)
